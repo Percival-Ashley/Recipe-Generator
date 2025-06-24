@@ -11,12 +11,16 @@ function displayRecipe(response) {
 function generateRecipe(event) {
   event.preventDefault();
 
+  let instructionsInput = document.querySelector("#user-instructions");
   let apiKey = "3471d6bbaf0b6da9tcfad5o5ae1dc50c";
-  let prompt = "";
-  let context = "";
+  let prompt = `User instructions:Generate a recipe about ${instructionsInput.value}`;
+  let context =
+    "You are a creative chef who creates delicious and easy-to-follow recipes.Make sure to follow the user's instructions closely.";
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
-  console.log("generating recipe");
+  console.log("Generating recipe");
+  console.log(`Prompt: ${prompt}`);
+  console.log(`Context: ${context}`);
 
   axios.get(apiUrl).then(displayRecipe);
 }
