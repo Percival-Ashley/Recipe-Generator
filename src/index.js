@@ -18,6 +18,9 @@ function generateRecipe(event) {
     "You are a creative chef who creates delicious and easy-to-follow recipes. Your mission is to generate a recipe and seperate each line with a <br/>. Make sure to follow the user's instructions closely.";
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
+  let recipeElement = document.querySelector("#recipe");
+  recipeElement.classList.remove("hidden");
+
   console.log("Generating recipe");
   console.log(`Prompt: ${prompt}`);
   console.log(`Context: ${context}`);
